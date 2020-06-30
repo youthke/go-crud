@@ -2,9 +2,9 @@ package conf
 
 import (
 	"fmt"
-	"github.com/HazeyamaLab/go-crud/pkg/domain/model"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
+	"github.com/youthke/go-crud/pkg/domain/model"
 )
 
 var (

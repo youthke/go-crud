@@ -1,9 +1,9 @@
 package controller
 
 import (
-	"github.com/HazeyamaLab/go-crud/pkg/domain/model"
-	"github.com/HazeyamaLab/go-crud/pkg/domain/service"
 	"github.com/gin-gonic/gin"
+	"github.com/youthke/go-crud/pkg/domain/model"
+	"github.com/youthke/go-crud/pkg/domain/service"
 	"log"
 	"strconv"
 )

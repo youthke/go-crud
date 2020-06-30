@@ -1,10 +1,10 @@
 package server
 
 import (
-	"github.com/HazeyamaLab/go-crud/conf"
-	"github.com/HazeyamaLab/go-crud/pkg/controller"
-	"github.com/HazeyamaLab/go-crud/pkg/domain/service"
-	"github.com/HazeyamaLab/go-crud/pkg/repository"
+	"github.com/youthke/go-crud/conf"
+	"github.com/youthke/go-crud/pkg/controller"
+	"github.com/youthke/go-crud/pkg/domain/service"
+	"github.com/youthke/go-crud/pkg/repository"
 	"github.com/gin-gonic/gin"
 )
 
