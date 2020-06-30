@@ -8,6 +8,8 @@ import (
 	"strconv"
 )
 
+const errorHTML = "500.html"
+
 type BookController interface {
 	Create(ctx *gin.Context)
 	Index(ctx *gin.Context)
@@ -27,7 +29,7 @@ func NewBookController(b service.BookService) BookController{
 func(b *bookController) Index(ctx *gin.Context){
 	books, err := b.bookService.FindAll()
 	if err != nil {
-		ctx.HTML(500,"500.html",nil)
+		ctx.HTML(500,errorHTML,nil)
 	}
 
 	ctx.HTML(200, "book-index.html", gin.H{"books": books })
@@ -41,7 +43,7 @@ func(b *bookController) Create(ctx *gin.Context){
 	price, err := strconv.Atoi(ctx.PostForm("price"))
 	if err != nil {
 		log.Println(err)
-		ctx.HTML(500, "500.html", nil)
+		ctx.HTML(500, errorHTML, nil)
 		return
 	}
 	book := model.Book{Title: title, Price: price, Author: author}
@@ -49,7 +51,7 @@ func(b *bookController) Create(ctx *gin.Context){
 	err = b.bookService.Create(book)
 	if err != nil {
 		log.Println(err)
-		ctx.HTML(500, "500.html", nil)
+		ctx.HTML(500, errorHTML, nil)
 		return
 	}
 
@@ -60,14 +62,14 @@ func (b *bookController) Edit(ctx *gin.Context){
 	id, err := strconv.Atoi(ctx.Param("id"))
 	if err != nil {
 		log.Println(err)
-		ctx.HTML(500, "500.html", nil)
+		ctx.HTML(500, errorHTML, nil)
 		return
 	}
 
 	book, err := b.bookService.FindOne(id)
 
 	if err != nil {
-		ctx.HTML(500, "500.html", nil)
+		ctx.HTML(500, errorHTML, nil)
 		return
 	}
 	ctx.HTML(200, "book-edit.html", gin.H{"book": book})
@@ -77,7 +79,7 @@ func(b *bookController) Update(ctx *gin.Context){
 	id, err := strconv.Atoi(ctx.Param("id"))
 	if err != nil {
 		log.Println(err)
-		ctx.HTML(500, "500.html", nil)
+		ctx.HTML(500, errorHTML, nil)
 		return
 	}
 
@@ -89,7 +91,7 @@ func(b *bookController) Update(ctx *gin.Context){
 	price, err := strconv.Atoi(ctx.PostForm("price"))
 	if err != nil {
 		log.Println(err)
-		ctx.HTML(500, "500.html", nil)
+		ctx.HTML(500, errorHTML, nil)
 		return
 	}
 
@@ -99,7 +101,7 @@ func(b *bookController) Update(ctx *gin.Context){
 	err = b.bookService.Update(book)
 	if err != nil {
 		log.Println(err)
-		ctx.HTML(500, "500.html", nil)
+		ctx.HTML(500, errorHTML, nil)
 		return
 	}
 
@@ -110,13 +112,13 @@ func (b *bookController) Delete(ctx *gin.Context){
 	id, err := strconv.Atoi(ctx.Param("id"))
 	if err != nil {
 		log.Println(err)
-		ctx.HTML(500, "500.html", nil)
+		ctx.HTML(500, errorHTML, nil)
 		return
 	}
 	err = b.bookService.Delete(id)
 
 	if err != nil {
-		ctx.HTML(500 ,"500.html",nil)
+		ctx.HTML(500 ,errorHTML,nil)
 		return
 	}
 
