@@ -1,8 +1,8 @@
 package service
 
 import (
-	"github.com/HazeyamaLab/go-crud/pkg/domain/model"
-	"github.com/HazeyamaLab/go-crud/pkg/repository"
+	"github.com/youthke/go-crud/pkg/domain/model"
+	"github.com/youthke/go-crud/pkg/repository"
 )
 
 type BookService interface{

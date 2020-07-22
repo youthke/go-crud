@@ -1,8 +1,8 @@
 package repository
 
 import (
-	"github.com/HazeyamaLab/go-crud/pkg/domain/model"
 	"github.com/jinzhu/gorm"
+	"github.com/youthke/go-crud/pkg/domain/model"
 )
 
 type BookRepository interface{
