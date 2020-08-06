@@ -6,6 +6,7 @@ import (
 	"github.com/youthke/go-crud/pkg/domain/service"
 	"log"
 	"strconv"
+	"fmt"
 )
 
 const errorHTML = "500.html"
@@ -28,6 +29,7 @@ func NewBookController(b service.BookService) BookController{
 
 func(b *bookController) Index(ctx *gin.Context){
 	books, err := b.bookService.FindAll()
+	fmt.Println("a")
 	if err != nil {
 		ctx.HTML(500,errorHTML,nil)
 	}
