@@ -58,3 +58,5 @@ func (b *bookRepository) Delete(id int) error{
 	var book model.Book
 	return b.db.Delete(&book,"id=?", id).Error
 }
+
+func doNothing(){}
