@@ -1,6 +1,7 @@
 package repository
 
 import (
+	"fmt"
 	"github.com/jinzhu/gorm"
 	"github.com/youthke/go-crud/pkg/domain/model"
 )
@@ -24,6 +25,16 @@ func NewBookRepository(db *gorm.DB) BookRepository{
 
 //CRUDのR READで情報を取得する この関数は全ての書籍のデータを取る
 func (b *bookRepository) FindAll() ([]model.Book, error){
+	fmt.Println("duplicate_string")
+	fmt.Println("duplicate_string")
+	fmt.Println("duplicate_string")
+	fmt.Println("duplicate_string")
+	fmt.Println("duplicate_string")
+	fmt.Println("duplicate_string")
+	fmt.Println("duplicate_string")
+	fmt.Println("duplicate_string")
+	fmt.Println("duplicate_string")
+
 	var books []model.Book
 	err := b.db.Find(&books).Error
 	return books, err
